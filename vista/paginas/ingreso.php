@@ -5,15 +5,15 @@
 <main class="contenedor inicio-sesion">
     <h1>¡Bienvenido!</h1>
 
-    <!--<?php if (isset($_SESSION['completado'])) : ?>
+    <?php if (isset($_GET['r'])) : ?>
         <div class="alert alert-exito">
             <p>
-                <?= $_SESSION['completado'] ?>
+                REGISTRO EXITOSO!!
             </p>
         </div>
     <?php endif; ?>
 
-    <?php if (isset($_SESSION['error_login'])) : ?>
+    <!--<?php if (isset($_SESSION['error_login'])) : ?>
         <div class="alert alert-fracaso">
             <p>
                 <?= $_SESSION['error_login']; ?>

@@ -1,12 +1,10 @@
 <?php
 
-if (!isset($_SESSION['validarIngreso'])) {
-    echo '<script>
-    window.location = "index.php?sw=ingreso";
+if (isset($_SESSION['validarIngreso'])) {
+    /*echo '<script>
+    window.location = "index.php?=main";
     </script>';
-    return;
-} else {
-
+    return;*/
     if ($_SESSION["validarIngreso"] != 'ok') {
         echo '<script>
         window.location = "index.php?sw=ingreso";
@@ -26,7 +24,7 @@ if (!isset($_SESSION['validarIngreso'])) {
             <p>Contamos con una amplia variedad de sabores, disfrutalos</p>
 
             <div class="btn-a">
-                <a href="#">Ver mas</a>
+                <a href="index.php?sw=productos">Ver mas</a>
             </div>
         </div>
     </div>
@@ -48,7 +46,7 @@ if (!isset($_SESSION['validarIngreso'])) {
     <div class="contenedor gomitas">
         <h3>¡Registrate y endulza tu vida!</h3>
         <div class="btn-a">
-            <a href="#">Registrarse</a>
+            <a href="index.php?sw=registro">Registrarse</a>
         </div>
     </div>
 </section>

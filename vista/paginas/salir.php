@@ -3,6 +3,6 @@
 session_destroy();
 
 echo '<script>
-    window.location = "index.php?sw=ingreso";
+    window.location = "index.php";
     </script>';
 ?>

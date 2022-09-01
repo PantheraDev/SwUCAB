@@ -1,6 +1,14 @@
 <?php
 
-    session_start();
+session_start();
+if (isset($_GET['sw'])) {
+
+    if ($_GET['sw'] == 'registro' || $_GET['sw'] == 'ingreso' || $_GET['sw'] == 'salir'
+    || $_GET['sw'] == 'productos'|| $_GET['sw'] == 'prod') {
+        $back = 'back';
+    }
+}
+
 
 ?>
 <!DOCTYPE html>
@@ -19,23 +27,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&family=Rancho&display=swap" rel="stylesheet">
 
     <title>SWEET UCAB</title>
+    
 </head>
 
-<body>
+<body class="<?php echo $back ?>">
     <header>
 
         <div class="header-sup">
-            <img id="logo" src="vista/img/Logo-SU-2.png" alt="log wapo">
+            <a href="index.php">
+                <img id="logo" src="vista/img/Logo-SU-2.png" alt="log wapo">
+            </a>
 
             <?php if (isset($_SESSION['validarIngreso'])) : ?>
 
                 <nav class="nav-bar2">
-
-                    <?php if (isset($_SESSION['validarIngreso'])) : ?>
+                    
+                    <?php if (isset($_SESSION['usuario'])) : ?>
                         <div class="btn-user">
-                            <a href="#">
+                            <a href="index.php?sw=cuenta">
                                 <i class="fa-solid fa-user"></i>
-                                <p><?= $_SESSION['validarIngreso']; ?></p>
+                                <p><?= $_SESSION['usuario']['usua_username']; ?></p>
                             </a>
                         </div>
                     <?php endif; ?>
@@ -93,7 +104,8 @@
 
     <?php
     if (isset($_GET['sw'])) {
-        if ($_GET['sw'] == 'registro' || $_GET['sw'] == 'ingreso' || $_GET['sw'] == 'main' || $_GET['sw'] == 'salir') {
+        if ($_GET['sw'] == 'registro' || $_GET['sw'] == 'ingreso' || $_GET['sw'] == 'main' || $_GET['sw'] == 'salir'
+        || $_GET['sw'] == 'productos'|| $_GET['sw'] == 'prod' || $_GET['sw'] == 'cuenta') {
             include 'vista/paginas/' . $_GET['sw'] . '.php';
         }
     } else {
@@ -109,7 +121,7 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="controlador/js/main.js"></script>
 </body>
 
 </html>

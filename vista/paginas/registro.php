@@ -46,24 +46,37 @@
 
         <?php
 
-            $registro = FormularioControlador::ctrRegistro();
+        $registro = FormularioControlador::ctrRegistro();
 
-            if($registro == 'ok'){
-                echo '<script>
+        if ($registro == 'ok') {
+            echo '<script>
                 if(window.history.replaceState){
                     window.history.replaceState(null,null,window.location.href);
                 }
+                window.location = "index.php?sw=ingreso&r=1";
                 </script>';
-                echo '<h4>Registro exitoso</h4>';
-            }
+
+            echo '<div class="alert-exito">
+                <p>
+                    REGISTRO EXITOSO!!
+                </p>
+            </div>';
+
+        } elseif ($registro == 'error') {
+            echo '<div class="alert-fracaso">
+                <p>
+                    ERROR: USUARIO O CORREO YA EXISTE!
+                </p>
+            </div>';
+        }
 
         ?>
 
         <div class="centrar-btn">
             <input type="submit" value="Continuar" id="btn-registro" class="btn" name="guardar">
-        </div> 
+        </div>
         <?php //borrarErrores();
-                ?>
+        ?>
     </form>
 
 </main>
